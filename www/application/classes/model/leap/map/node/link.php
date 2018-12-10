@@ -160,7 +160,7 @@ class Model_Leap_Map_Node_Link extends DB_ORM_Model {
                        ->column('text', Arr::get($values, 'text', ''))
                        ->column('node_id_1', Arr::get($values, 'node_id_1', ''))
                        ->column('node_id_2', Arr::get($values, 'node_id_2', ''))
-                       ->column('image_id', Arr::get($values, 'image_id', null))
+                       ->column('image_id', (int)Arr::get($values, 'image_id', null))
                        ->column('order', Arr::get($values, 'order', 0))
                        ->column('probability', Arr::get($values, 'probability', 0))
                        ->execute();

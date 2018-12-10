@@ -1345,7 +1345,7 @@ class Controller_RenderLabyrinth extends Controller_Template {
     private static function getImageHTML($id)
     {
         $image = DB_ORM::model('map_element', array((int) $id));
-        return $image ? '<img src="'.URL::base().$image->path.'">' : '';
+        return $image ? '<img style="max-width:100%" src="'.URL::base().$image->path.'">' : '';
     }
 
     private static function getFileLink($id)

@@ -197,7 +197,7 @@ var RightPanel = function() {
             }
 
             self.node.title = GetValueFromValField(self.$nodeTitle);
-            self.node.content = tinymce.get(self.nodeContentId).getContent({format : 'raw', no_events : 1});//GetValueFromValField($content);
+            self.node.content = tinymce.get(self.nodeContentId).getContent({format : 'html', no_events : 1});//GetValueFromValField($content);
             self.node.support = tinymce.get(self.nodeSupportId).getContent({format : 'raw', no_events : 1});//GetValueFromValField($support);
             self.node.supportKeywords = GetValueFromValField(self.$nodeSupportKeywords);
             self.node.isExit = GetBooleanValueFromField(self.$nodeIsExitNodePorb);
