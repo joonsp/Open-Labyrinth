@@ -408,7 +408,7 @@ class Controller_H5P extends Controller_Base
         );
 
         $this->add_admin_assets();
-        H5PPluginAdmin::add_script('library-list', '/scripts/h5p/h5p-library-details.js');
+        H5PPluginAdmin::add_script('library-list', '/www/scripts/h5p/h5p-library-details.js');
 
         $messages = H5PPluginAdmin::getMessagesHTML();
         $settings = $plugin->getSettingsHTML($settings, 'H5PAdminIntegration');
@@ -616,14 +616,14 @@ class Controller_H5P extends Controller_Base
                     // Get core scripts
                     $scripts = array();
                     foreach (H5PCore::$scripts as $script) {
-                        $url = '/scripts/h5p/' . str_replace('js/', '', $script) . $cache_buster;
+                        $url = '/www/scripts/h5p/' . str_replace('js/', '', $script) . $cache_buster;
                         $scripts[] = $url;
                     }
 
                     // Get core styles
                     $styles = array();
                     foreach (H5PCore::$styles as $style) {
-                        $url = '/css/h5p/' . str_replace('styles/', '', $style) . $cache_buster;
+                        $url = '/www/css/h5p/' . str_replace('styles/', '', $style) . $cache_buster;
                         $styles[] = $url;
                     }
 
@@ -718,7 +718,7 @@ class Controller_H5P extends Controller_Base
             $plugin_admin = H5PPluginAdmin::get_instance();
             $settings = $plugin_admin->get_data_view_settings(
                 'h5p-content-results',
-                '/h5p/ajaxResult/' . $content_admin->content['id'],
+                '/www/h5p/ajaxResult/' . $content_admin->content['id'],
                 array(
                     (object)array(
                         'text' => __('User'),
@@ -799,14 +799,14 @@ class Controller_H5P extends Controller_Base
     public function action_addContent()
     {
         static::loadH5PEditorClasses();
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/jquery.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-event-dispatcher.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-utils.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-data-view.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-data-views.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/jquery.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-event-dispatcher.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-utils.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-data-view.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-data-views.js';
 
-        $this->templateData['styles_stack'][] = '/css/h5p/h5p.css';
-        $this->templateData['styles_stack'][] = '/css/h5p/h5p-admin.css';
+        $this->templateData['styles_stack'][] = '/www/css/h5p/h5p.css';
+        $this->templateData['styles_stack'][] = '/www/css/h5p/h5p-admin.css';
 
         $id = $this->request->param('id');
 
@@ -839,9 +839,9 @@ class Controller_H5P extends Controller_Base
 
         //include_once('views/new-content.php');
         $settings = $content_admin->get_editor_assets($contentExists ? $content['id'] : null);
-        H5PPluginAdmin::add_script('jquery', '/scripts/h5p/jquery.js');
-        H5PPluginAdmin::add_script('disable', '/scripts/h5p/disable.js');
-        H5PPluginAdmin::add_script('toggle', '/scripts/h5p/editor/scripts/h5p-toggle.js');
+        H5PPluginAdmin::add_script('jquery', '/www/scripts/h5p/jquery.js');
+        H5PPluginAdmin::add_script('disable', '/www/scripts/h5p/disable.js');
+        H5PPluginAdmin::add_script('toggle', '/www/scripts/h5p/editor/scripts/h5p-toggle.js');
 
         $this->loadAssets();
 
@@ -983,14 +983,14 @@ class Controller_H5P extends Controller_Base
 
     public function action_index()
     {
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/jquery.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-event-dispatcher.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-utils.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-data-view.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-data-views.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/jquery.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-event-dispatcher.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-utils.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-data-view.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-data-views.js';
 
-        $this->templateData['styles_stack'][] = '/css/h5p/h5p.css';
-        $this->templateData['styles_stack'][] = '/css/h5p/h5p-admin.css';
+        $this->templateData['styles_stack'][] = '/www/css/h5p/h5p.css';
+        $this->templateData['styles_stack'][] = '/www/css/h5p/h5p-admin.css';
 
         $headers = array(
             (object)array(
@@ -1033,7 +1033,7 @@ class Controller_H5P extends Controller_Base
         $plugin_admin = H5PPluginAdmin::get_instance();
         $data_view = $plugin_admin->get_data_view_settings(
             'h5p-contents',
-            admin_url('/h5p/contents'),
+            admin_url('/www/h5p/contents'),
             $headers,
             array(true),
             __("No H5P content available. You must upload or create new content."),
@@ -1059,8 +1059,8 @@ class Controller_H5P extends Controller_Base
     public function action_libraries()
     {
         $this->add_admin_assets();
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-library-list.js';
-        $this->templateData['scripts_stack'][] = '/scripts/h5p/h5p-event-dispatcher.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-library-list.js';
+        $this->templateData['scripts_stack'][] = '/www/scripts/h5p/h5p-event-dispatcher.js';
 
         $plugin = H5PPlugin::get_instance();
         $core = $plugin->get_h5p_instance('core');
@@ -1206,12 +1206,12 @@ class Controller_H5P extends Controller_Base
     private function add_admin_assets()
     {
         foreach (H5PCore::$adminScripts as $script) {
-            $this->templateData['scripts_stack'][] = '/scripts/h5p/' . str_replace(array('styles/', 'js/'), '',
+            $this->templateData['scripts_stack'][] = '/www/scripts/h5p/' . str_replace(array('styles/', 'js/'), '',
                     $script);
         }
 
-        $this->templateData['styles_stack'][] = '/css/h5p/h5p.css';
-        $this->templateData['styles_stack'][] = '/css/h5p/h5p-admin.css';
+        $this->templateData['styles_stack'][] = '/www/css/h5p/h5p.css';
+        $this->templateData['styles_stack'][] = '/www/css/h5p/h5p-admin.css';
     }
 
     private function ajax_contents($insert = false)

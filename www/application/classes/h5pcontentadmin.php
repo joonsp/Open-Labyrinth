@@ -22,8 +22,8 @@
 class H5PContentAdmin
 {
 
-    const PATH_SCRIPTS = '/scripts/h5p/editor/';
-    const PATH_STYLES = '/css/h5p/editor/';
+    const PATH_SCRIPTS = '/www/scripts/h5p/editor/';
+    const PATH_STYLES = '/www/css/h5p/editor/';
     /**
      * @since 1.1.0
      */
@@ -524,9 +524,9 @@ class H5PContentAdmin
                 'width' => 50,
                 'height' => 50,
             ),
-            'ajaxPath' => admin_url('/h5p/ajax_'),
+            'ajaxPath' => admin_url('/www/h5p/ajax_'),
             //'libraryUrl' => 'h5p/h5p-editor-php-library/h5peditor.class.php',
-            'libraryUrl' => '/scripts/h5p/editor',
+            'libraryUrl' => '/www/scripts/h5p/editor',
             'copyrightSemantics' => $content_validator->getCopyrightSemantics(),
             'assets' => $assets,
             'deleteMessage' => __('Are you sure you wish to delete this content?'),

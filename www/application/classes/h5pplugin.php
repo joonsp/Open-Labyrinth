@@ -929,7 +929,7 @@ NOW;
             'baseUrl' => rtrim(URL::base(true), '/'),
             'url' => $this->get_h5p_url(),
             'postUserStatistics' => ($is_logged_in && (get_option('h5p_track_user', '1') === '1')),
-            'ajaxPath' => admin_url('/h5p/ajax_'),
+            'ajaxPath' => admin_url('/www/h5p/ajax_'),
             'ajax' => array(
                 'setFinished' => '/h5p/saveResult',
                 'contentUserData' => '/h5p/contentUserData?content_id=:contentId&data_type=:dataType&sub_content_id=:subContentId'
@@ -1005,14 +1005,14 @@ NOW;
 
         // Add core stylesheets
         foreach (H5PCore::$styles as $style) {
-            $url = '/css/h5p/' . str_replace('styles/', '', $style);
+            $url = '/www/css/h5p/' . str_replace('styles/', '', $style);
             self::$settings['core']['styles'][] = $url;
             CustomAssetManager::addStyle($this->asset_handle('core-' . $style), $url);
         }
 
         // Add core JavaScript
         foreach (H5PCore::$scripts as $script) {
-            $url = '/scripts/h5p/' . str_replace('js/', '', $script);
+            $url = '/www/scripts/h5p/' . str_replace('js/', '', $script);
             self::$settings['core']['scripts'][] = $url;
             CustomAssetManager::addScript($this->asset_handle('core-' . $script), $url);
         }

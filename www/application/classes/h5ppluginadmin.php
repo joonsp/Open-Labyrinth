@@ -642,12 +642,12 @@ class H5PPluginAdmin
         $plugin->print_settings($settings);
 
         // Add JS
-        H5PPluginAdmin::add_script('jquery', 'scripts/h5p/jquery.js');
-        H5PPluginAdmin::add_script('event-dispatcher', 'scripts/h5p/h5p-event-dispatcher.js');
-        H5PPluginAdmin::add_script('utils', 'scripts/h5p/h5p-utils.js');
-        H5PPluginAdmin::add_script('data-view', 'scripts/h5p/h5p-data-view.js');
-        H5PPluginAdmin::add_script('data-views', 'scripts/h5p/h5p-data-views.js');
-        H5PPluginAdmin::add_style('admin', 'css/h5p/h5p-admin.css');
+        H5PPluginAdmin::add_script('jquery', 'www/scripts/h5p/jquery.js');
+        H5PPluginAdmin::add_script('event-dispatcher', 'www/scripts/h5p/h5p-event-dispatcher.js');
+        H5PPluginAdmin::add_script('utils', 'www/scripts/h5p/h5p-utils.js');
+        H5PPluginAdmin::add_script('data-view', 'www/scripts/h5p/h5p-data-view.js');
+        H5PPluginAdmin::add_script('data-views', 'www/scripts/h5p/h5p-data-views.js');
+        H5PPluginAdmin::add_style('admin', 'www/css/h5p/h5p-admin.css');
     }
 
     public function get_data_view_settings($name, $source, $headers, $filters, $empty, $order)

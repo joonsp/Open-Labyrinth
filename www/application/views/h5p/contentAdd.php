@@ -23,7 +23,7 @@
             <?php endif; ?>
         </h2>
         <?php H5PPluginAdmin::print_messages(); ?>
-        <form method="post" enctype="multipart/form-data" id="h5p-content-form" action="/h5p/addContentSubmit/<?php echo (isset($content['id']) ? $content['id'] : '') ?>">
+        <form method="post" enctype="multipart/form-data" id="h5p-content-form" action="/www/h5p/addContentSubmit/<?php echo (isset($content['id']) ? $content['id'] : '') ?>">
             <div class="row">
                 <div class="span8">
                     <div id="post-body-content">
